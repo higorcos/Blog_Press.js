@@ -2,8 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const connection = require('./database/database')
+
 const routerCategories = require('./categories/categoriesController') // rotas em outro arquivo 
 const routerArticles = require('./articles/articlesController')
+
+const Article = require('./articles/articles');
+const Category = require('./categories/category');
 
 //view engine
 app.set('view engine','ejs');//para usar o ejs para carregar as páginas
@@ -20,7 +24,7 @@ app.use(bodyParser.json())
 connection
 .authenticate()
 .then(()=> {
-    console.log('conexão com banco de dados foi um sucesso!')
+    console.log('..........Conectado com banco de dados !!!')
 }).catch((error)=>{
     console.log(error)
 })
@@ -35,5 +39,5 @@ app.get('/', (req,res) =>{
 })
 
 app.listen(8080,()=>{
-    console.log('servidor online');
+    console.log('..........Servidor online');
 })
