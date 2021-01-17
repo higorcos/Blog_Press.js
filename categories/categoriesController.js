@@ -1,11 +1,25 @@
 const express = require('express');
 const router = express.Router();//.Router para criar manipuladores de rota modulares e montáveis.
+const Category = require('./category')
+const slugify = require('slugify');// biblioteca para transformar texto em url 
 
 //o router faz a dritribuição de rota fora do arquivo primario 
-router.get('/categories',(req,res) =>{
-    res.send('Rota das categorias');
-})
 router.get('/admin/categories/new',(req,res) =>{
-    res.send('Rota para criação de novas categorias');
+    res.render('admin/categories/new')
+})
+router.post('/categories/save',(req,res) =>{
+    var titleCategory = req.body.titleCategory;
+    if(titleCategory != undefined){
+        Category.create({
+            title: titleCategory,
+            slug: slugify(titleCategory)
+        }).then(() => {
+            res.redirect('/')
+        })
+    }else{
+        res.redirect("/admin/categories/new");
+         
+    }
+
 })
 module.exports = router;
