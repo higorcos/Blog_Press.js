@@ -9,6 +9,9 @@
                             <h1>Categories </h1>
                         </div>
                         <div class="card-body">
+                            <a class='btn btn-success' href="/admin/categories/new">Criar nova categoria</a>
+                            <hr>
+                            
                             <table class=" table table-bordered">
                                 <thead>
                                     <tr>
@@ -19,17 +22,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                        
-                                        <% categories.forEach(category => { %>
+                                    
+                                    <% categories.forEach(category => { %>
+                                        <tr>
                                             <th><%= category.id%></th>
                                         <th><%= category.title%></th>
                                         <th><%= category.slug%></th>
-                                        <th><% %></th>
+                                        <th>
+                                            <button class="btn btn-warning">Editar</button>
+                                     <form method="POST" action="/categories/delete" style="display:inline">
+                                        <input type='hidden' name='id' value='<%= category.id%>'>
+                                        <button class="btn btn-danger">Deletar</button>
+                                        </form>
+                                        </th>
                                         
+                                    </tr>
 
                                         <% })%>
-                                    </tr>
                                 </tbody>
                             </table>
                     </div>
