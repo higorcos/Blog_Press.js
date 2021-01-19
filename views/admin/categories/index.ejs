@@ -11,7 +11,7 @@
                         <div class="card-body">
                             <a class='btn btn-success' href="/admin/categories/new">Criar nova categoria</a>
                             <hr>
-                            
+
                             <table class=" table table-bordered">
                                 <thead>
                                     <tr>
@@ -22,27 +22,43 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
-                                    <% categories.forEach(category => { %>
+
+                                    <% categories.forEach(category=> { %>
                                         <tr>
-                                            <th><%= category.id%></th>
-                                        <th><%= category.title%></th>
-                                        <th><%= category.slug%></th>
-                                        <th>
-                                            <button class="btn btn-warning">Editar</button>
-                                     <form method="POST" action="/categories/delete" style="display:inline">
-                                        <input type='hidden' name='id' value='<%= category.id%>'>
-                                        <button class="btn btn-danger">Deletar</button>
-                                        </form>
-                                        </th>
-                                        
-                                    </tr>
+                                            <th>
+                                                <%= category.id%>
+                                            </th>
+                                            <th>
+                                                <%= category.title%>
+                                            </th>
+                                            <th>
+                                                <%= category.slug%>
+                                            </th>
+                                            <th>
+                                                <a href="/admin/categories/edit/<%= category.id%>" class="btn btn-warning">Editar</a>
+                                                <form method="POST" action="/categories/delete" style="display:inline" onsubmit="confirmDelete(event, this)">
+                                                    <input type='hidden' name='id' value='<%= category.id%>'>
+                                                    <button class="btn btn-danger">Deletar</button>
+                                                </form>
+                                            </th>
+
+                                        </tr>
 
                                         <% })%>
                                 </tbody>
                             </table>
-                    </div>
+                        </div>
                     </div>
                 </div>
         </body>
         <%- include('../../partials/footer.ejs')%>
+        <script>
+            function confirmDelete(event, form){
+                event.preventDefault();//impede o formulária de ser enviado 
+                var choice = confirm('Deletar categoria ?');
+                if (choice){
+                    console.log('apagar');
+                    form.submit();
+                }
+            }
+        </script>
