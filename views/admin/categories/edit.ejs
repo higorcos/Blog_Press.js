@@ -1,0 +1,23 @@
+<%- include('../../partials/header.ejs')%>
+    <! --Para incluir partes de outro documento(usando quando a parte externa e reutilizada em outros códigos) -->
+
+        <body>
+            <%- include('../../partials/navbar.ejs')%>
+                <div class="container">
+                    <div class="card" id='form'>
+                        <div class="card-header">
+                            <h1>Edição de categoria</h1>
+                        </div>
+                        <div class="card-body">
+                      <form method="POST" action = '/categories/update'>
+                          <input class='form-control' type="text" name="title" value="<%= category.title%>">
+                          <br>
+                          <input type="hidden" name='id' value='<%= category.id%>'>
+                          <button class="corBotao ">Atualizar</button>
+                      </form>
+                    </div>
+                    </div>
+                </div>
+        </body>
+        <%- include('../../partials/footer.ejs')%>
+
