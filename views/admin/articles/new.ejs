@@ -1,0 +1,36 @@
+<%- include('../../partials/header.ejs')%>
+        <body>
+            <%- include('../../partials/navbar.ejs')%>
+                <div class="container">
+                    <div class="card" id='form'>
+                        <div class="card-header">
+                            <h1>Escrever artigo </h1>
+                        </div>
+                        <div class="card-body">
+                      <form method="POST" action = '/categories/save'>
+                          <input class='form-control' type="text" name="titleCategory" placeholder="Digite o título do seu artigo">
+                          <br>
+                          <textarea class="form-control" placeholder="Escreva o seu artigo aqui!" name='body-text' id='article'></textarea>
+                          <br>
+                          <button class="corBotao ">Cadastrar</button>
+                      </form>
+                      <label><select>
+                        <% categories.forEach(category=> { %>    
+                            <option value="<%= category.title%>" name='<%= category.id%>'><%= category.title%></option>
+                    <% })%>
+                      </select></label>
+                    </div>
+                    </div>
+                </div>
+        </body>
+<%- include('../../partials/footer.ejs')%>
+<script src="/tinymce/tinymce.min.js" ></script>
+<script> //configurações avançadas para formatação de texto 
+    tinymce.init({
+        language: 'pt_BR',
+        selector: '#article',//id do local onde está o textarea
+        plugins:[
+            'advlist autolink image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+        ]
+    })
+</script>
