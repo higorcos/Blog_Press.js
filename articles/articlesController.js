@@ -6,7 +6,9 @@ const slugify = require('slugify')
 
 //o router faz a dritribuição de rota fora do arquivo primario 
 router.get('/admin/articles',(req,res) =>{
-    res.send('Rota dos artigos');
+    Article.findAll().then(articles => {
+        res.render('admin/articles/index',{articles:articles});
+    })
 })
 router.get('/admin/articles/new',(req,res) =>{
     Category.findAll().then(categories => {
