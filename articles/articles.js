@@ -16,10 +16,9 @@ const article = connection.define('articles',{
         allowNull: false
     }
 })
-//article.sync({force: true})// vai forçar a criação da tabela
 
-article.belongsTo(category); //relacinamento 1 para 1 com siquelize
 category.hasMany(article); //relacinamento 1 para M(muitos) com siquelize
+article.belongsTo(category); //relacinamento 1 para 1 com siquelize
 
-
+//article.sync({force: true})// vai forçar a criação da tabela
 module.exports = article;
