@@ -13,9 +13,9 @@
                           <textarea class="form-control" placeholder="Escreva o seu artigo aqui!" name='textArticle' id='article'></textarea>
                           <br>
                           <label>Categoria</label><!-- mostra ao usuário as categorias já cadastradas -->
-                          <select name ='category' class="form-control">
+                          <select class="form-control"  name ='category'>
                             <% categories.forEach(category=> { %>    
-                                <option value="<%= category.title%>" name='<%= category.id%>'>
+                                <option value="<%= category.id%>">
                                     <%= category.title%></option>
                             <% })%>
                           </select></br>
