@@ -6,6 +6,13 @@ const slugify = require('slugify');// biblioteca para transformar texto em url
 //const category = require('./category');
 
 //o router faz a dritribuição de rota fora do arquivo primario 
+router.get("/admin/categories", (req,res) => {
+
+    Category.findAll({raw: true}).then(category =>{
+    res.render('admin/categories/index',{categories: category });
+    });
+});
+
 router.get('/admin/categories/new',(req,res) =>{
     res.render('admin/categories/new')
 })
@@ -24,14 +31,9 @@ router.post('/categories/save',(req,res) =>{
     }
 
 });
-router.get("/admin/categories", (req,res) => {
-
-    Category.findAll({raw: true}).then(category =>{
-    res.render('admin/categories/index',{categories: category });
-    });
-});
 
 router.post("/categories/delete", (req,res)=>{
+
     let id_to_delete = req.body.id;
     if(id_to_delete != undefined){//se não for indefined
         if(!isNaN(id_to_delete)){//se for um número
@@ -58,7 +60,7 @@ router.get("/admin/categories/edit/:id", (req,res) => {
     let idSearch = req.params.id;
     if(isNaN(idSearch)){
         res.redirect('/admin/categories')
-    }
+    }else{
     Category.findByPk(idSearch).then(category => { //findByPK pesquisar no banco de dados
 
         if(category != undefined){
@@ -68,8 +70,8 @@ router.get("/admin/categories/edit/:id", (req,res) => {
         }
     }).catch(erro => {
         res.redirect('/admin/categories')
-
-    })
+    });
+}
 });
 
 router.post('/categories/update',(req,res)=> {
