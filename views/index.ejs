@@ -1,17 +1,18 @@
 <%- include('partials/header.ejs')%>
-    <! --Para incluir partes de outro documento(usando quando a parte externa e reutilizada em outros códigos) -->
-
         <body>
-            <%- include('partials/navbar.ejs')%>
+            <%- include('partials/homenavbar.ejs')%>
+       
                 <div class="container">
+                   <% articles.forEach(article => {%>
                     <div class="card" id='form'>
                         <div class="card-header">
-                            <h1>Wordpress</h1>
+                            <h3><%= article.title%></h3>
                         </div>
                         <div class="card-body">
-                      
+                            <a href="/<%= article.slug%>" class="corBotao" role="button">Ler artigo </a>
+                        </div>
                     </div>
-                    </div>
+                    <%})%>
                 </div>
         </body>
         <%- include('partials/footer.ejs')%>
