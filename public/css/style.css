@@ -9,16 +9,38 @@ nav#navbar{
 }
 .corBotao{
   background-color: rgb(11, 39, 66);
-  color: rgb(218, 228, 233);
+ 
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    user-select: none;
+   
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,
+    background-color .15s ease-in-out,
+    border-color .15s ease-in-out, 
+    box-shadow .15s ease-in-out; 
+
 }
-#corBotao{
+.corBotao:hover{
+  background-color: rgb(33, 82, 128);
+  color: rgb(255, 255, 255);
+}
+/* #corBotao{
   background-color: rgb(35, 93, 143);;
   color: rgb(218, 228, 233);
 }
 .corBotao02{
   background-color: rgb(35, 93, 143);
   color: rgb(218, 228, 233);
-}
+} */
 p#retornoDoBanco{
   color: rgb(8, 8, 9)
 }
