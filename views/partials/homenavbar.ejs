@@ -1,14 +1,21 @@
 <nav class="navbar navbar-expand-lg  navbar-dark" id='navbar'>
-    <nav>
-    <div class="container">
-      <a class="navbar-brand" href="/">Press.js </a>
-    </div>
-    </nav>
+  <nav>
+  <div class="container">
+    <a class="navbar-brand" href="/">Press.js </a>
+  </div>
+  </nav>
+  <ul class="navbar-nav mr-auto">
+    <li class='nav-item'>
+      <a class="nav-link" href="/">Home</a>
+    </li>
+  </ul> 
+  <% categories.forEach(category =>{%>
     <ul class="navbar-nav mr-auto">
-        <li class='nav-item'>
-          <a class="nav-link" href="/">Home</a>
-        </li>
-      </ul>
-    
-     
-      </nav>
+       <li class='nav-item'>
+         <a class="nav-link" href="/category/<%= category.slug%>""><%= category.title %></a>
+       </li>
+     </ul> 
+
+  <%})%>
+
+    </nav>

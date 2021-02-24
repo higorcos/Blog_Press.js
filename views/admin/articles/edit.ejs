@@ -8,11 +8,22 @@
                         </div>
                         <div class="card-body">
                       <form method="POST" action = '/admin/articles/update'>
-                          <input class='form-control' type="text" name="title" value="<%= article.title%>">
+                          <input type="hidden" name='id' value='<%= articles.id%>'>
+                          <input class='form-control' type="text" name="title" value="<%= articles.title%>">
                           <br>
-                          <textarea class="form-control" name='textArticle' value='<%= article.body%>"'id='article'><%= article.body%></textarea>
-                          <br>
-                          <input type="hidden" name='id' value='<%= article.id%>'>
+                          <textarea class="form-control" name='bodyText' value='<%= articles.body%>' id='article'><%= articles.body%></textarea>
+                          <br> 
+                          <label>Categoria:</label>
+                          <select class="form-control"  name ='category'>
+                          <% categories.forEach(category=> { %>    
+                            <% if(category.id == articles.categoryId){%>
+                            <option value="<%= category.id%>"selected> <%= category.title%></option>
+                            <% }else{ %>
+                            <option value="<%= category.id%>"> <%= category.title%></option>
+                             <%}%>
+                            <% })%>
+                          </select></br>
+
                           <button class="corBotao ">Atualizar</button>
                       </form>
                     </div>
@@ -20,4 +31,14 @@
                 </div>
         </body>
         <%- include('../../partials/footer.ejs')%>
+<script src="/tinymce/tinymce.min.js" ></script>
+<script> //configurações avançadas para formatação de texto 
+    tinymce.init({
+        language: 'pt_BR',
+        selector: '#article',//id do local onde está o textarea
+        plugins:[
+            'advlist autolink image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+        ]
+    })
+</script>
 

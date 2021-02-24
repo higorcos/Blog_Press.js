@@ -61,9 +61,11 @@ router.get("/admin/articles/edit/:id", (req,res)=>{
     if(isNaN(idSearch)){
         res.redirect('/admin/articles')
     }else{
-        Article.findByPk(idSearch).then(article => {
-            if(article != undefined){
-                res.render('admin/articles/edit', {article: article})
+        Article.findByPk(idSearch).then(articles => {
+            if(articles != undefined){  
+                Category.findAll().then(categories => {           
+             res.render('admin/articles/edit', {articles: articles, categories: categories});
+                })        
             }else{
                 res.redirect('/admin/articles') 
             }
@@ -76,9 +78,10 @@ router.get("/admin/articles/edit/:id", (req,res)=>{
 router.post('/admin/articles/update', (req,res) => {
     let idUp = req.body.id;
     let titleUp = req.body.title;
-    //let categoryUp = req.body.category
+    let bodyUP = req.body.bodyText;
+    let categoryUp = req.body.category
 
-    Article.uptade({ title: titleUp, slug: slugify(titleUp)},{
+    Article.update({ title: titleUp, slug: slugify(titleUp), body: bodyUP, categoryId: categoryUp},{
         where: {
             id:idUp
         }
