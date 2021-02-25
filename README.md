@@ -1,19 +1,18 @@
 # Blog_Wordpress.js
-Criando uma site para publicação de post
+Criando uma site para publicação de posts
 
 
 ## Installation
 
-This is a [Node.js](https://nodejs.org/en/) module available through the
+Este é um módulo [Node.js](https://nodejs.org/en/) disponível através do
 [npm registry](https://www.npmjs.com/).
 
-Before installing, [download and install Node.js](https://nodejs.org/en/download/).
-Node.js 0.10 or higher is required.
 
-If this is a brand new project, make sure to create a `package.json` first with
-the [`npm init` command](https://docs.npmjs.com/creating-a-package-json-file).
+Antes de instalar, [download and install Node.js](https://nodejs.org/en/download/).
+Node.js 0.10 ou superior é necessário.
 
-Installation is done using the
+
+A instalação é feita usando o
 [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
 
 ```bash
