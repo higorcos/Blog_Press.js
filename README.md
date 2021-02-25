@@ -8,7 +8,7 @@ Este é um módulo [Node.js](https://nodejs.org/en/) disponível através do
 [npm registry](https://www.npmjs.com/).
 
 
-Antes de instalar, [download and install Node.js](https://nodejs.org/en/download/).
+Antes de instalar, [baixe e instale Node.js](https://nodejs.org/en/download/).
 Node.js 0.10 ou superior é necessário.
 
 

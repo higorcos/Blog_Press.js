@@ -1,4 +1,3 @@
-/* Teste git */
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
@@ -88,5 +87,5 @@ app.get('/category/:slug', (req,res) => { //rota para flitrar as caregorias
 })
 
 app.listen(8080,()=>{
-    console.log('..........Servidor online agora');
+    console.log('..........Servidor online');
 })
