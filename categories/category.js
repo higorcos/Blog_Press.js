@@ -11,7 +11,6 @@ const category = connection.define('categories',{
         allowNull: false
     }
 })
+
 //category.sync({force: true})// vai forçar a criação da tabela
-
-
 module.exports = category;
