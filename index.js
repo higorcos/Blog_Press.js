@@ -10,6 +10,7 @@ const Article = require('./articles/articles');
 const Category = require('./categories/category');
 const article = require('./articles/articles');
 const category = require('./categories/category');
+const router = require('./categories/categoriesController');
 
 //view engine
 app.set('view engine','ejs');//para usar o ejs para carregar as páginas
