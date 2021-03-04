@@ -97,12 +97,13 @@ router.get('/articles/page/:num', (req,res)=> { //vai dividir os artigos em dife
     if(isNaN(page) || page == 1){
         offset = 0
     }else{
-        offset = parseInt(page) * 4
+        offset = (parseInt(page) -1) * 4
     }
 
     Article.findAndCountAll({ //conta o resultado da pesquisa no banco de dado
         limit: 4,//número de elemento por página
-        offset: offset //o offset identifica qual será o começo na fila. Exemplo o offset é 6, a contagem começa do seis até chegar no limite estipulado pelo limit(4) no caso seria até o 9(6,7,8,9) 
+        offset: offset, //o offset identifica qual será o começo na fila. Exemplo o offset é 6, a contagem começa do seis até chegar no limite estipulado pelo limit(4) no caso seria até o 9(6,7,8,9) 
+        order: [['id','DESC']]
     }).then(articles => {
         let next;
         if(offset + 4 >= articles.count){
@@ -112,6 +113,7 @@ router.get('/articles/page/:num', (req,res)=> { //vai dividir os artigos em dife
         }
         var result = {
             next: next,
+            page: parseInt(page),
             articles : articles
         }
         Category.findAll().then(categories => {
