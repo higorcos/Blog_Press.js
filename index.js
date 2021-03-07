@@ -21,7 +21,7 @@ app.set('view engine','ejs');//para usar o ejs para carregar as páginas
 
 //express-sessions
 app.use(session({
-    secret: '@#$%%¨&&%$rt', cookie:{ maxAge: 30000}
+    secret: '@#$%%¨&&%$rt', cookie:{ maxAge: 1800000}
     //secret uma segunrança (o secret vai para o lado do servidor)
     //cookei é um lembrete indireto do secret (o cookie fica no lado do cliente)
     //maxAge tempo limite que o cookei é valido
