@@ -35,6 +35,33 @@ router.post('/user/save', (req,res) => {
     }
     })
 
+});
+
+router.get('/user/login',(req,res)=>{
+    res.render('admin/users/login')
 })
+router.post('/authenticate',(req,res)=>{
+    let email = req.body.email;
+    let password = req.body.password;
+    User.findOne({
+        where:{email: email}
+    }).then(user =>{
+       if(user != undefined){
+            var correct = bcrypt.compareSync(password,user.password);//vai verificar se as senhas são a mesma
+            if(correct){
+                //Vai salvar os dados da sesão 
+                req.session.user = {
+                    id: user.id,
+                    email: user.email
+                }
+                res.json(req.session.user)
+            }else{
+                res.redirect('user/login');
+            }
+        }else{
+            res.redirect('user/login');
+        }
+    })
+});
 
 module.exports = router;

@@ -19,12 +19,13 @@ const router = require('./categories/categoriesController');
 //view engine
 app.set('view engine','ejs');//para usar o ejs para carregar as páginas
 
-//sessions
+//express-sessions
 app.use(session({
     secret: '@#$%%¨&&%$rt', cookie:{ maxAge: 30000}
     //secret uma segunrança (o secret vai para o lado do servidor)
     //cookei é um lembrete indireto do secret (o cookie fica no lado do cliente)
     //maxAge tempo limite que o cookei é valido
+    //o salvamento de dados padrão do 'express-sessions' é na namemoria ram, não é funcional para grandes aplicações.
 }))
 
 
@@ -105,3 +106,23 @@ app.get('/category/:slug', (req,res) => { //rota para flitrar as caregorias
 app.listen(8080,()=>{
     console.log('..........Servidor online');
 })
+
+
+/* app.get('/session',(req,res)=>{ //declara as informações quer salvar 
+    req.session.treinamento = 'Formação nodejs'
+    req.session.ano = '2021'
+    req.session.user ={
+        username: 'higor',
+        email: 'higor@gmail.com',
+        id: 10
+    }
+    res.send('feito')
+})
+
+app.get('/leitura',(req,res)=>{
+    res.json({
+        treinamento: req.session.treinamento,
+        ano: req.session.ano,
+        user: req.session.user
+    });
+}); */
