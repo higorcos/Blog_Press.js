@@ -4,6 +4,9 @@ body{
 div#form{
   margin-top: 5vh;
 }
+div#form_create{
+  margin-top: 18vh;
+}
 nav#navbar{
   background-color: rgb(35, 93, 143);
 }
