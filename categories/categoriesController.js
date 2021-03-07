@@ -2,21 +2,22 @@ const express = require('express');
 const router = express.Router();//.Router para criar manipuladores de rota modulares e montáveis.
 const Category = require('./category')
 const slugify = require('slugify');// biblioteca para transformar texto em url 
+const adminAuth = require('../middlerware/adminAuth') //middlerware(autenticação para rotas administrativas)
 
 //const category = require('./category');
 
 //o router faz a dritribuição de rota fora do arquivo primario 
-router.get("/admin/categories", (req,res) => {
+router.get("/admin/categories",adminAuth,(req,res) => {
 
     Category.findAll({raw: true}).then(category =>{
     res.render('admin/categories/index',{categories: category });
     });
 });
 
-router.get('/admin/categories/new',(req,res) =>{
+router.get('/admin/categories/new',adminAuth,(req,res) =>{
     res.render('admin/categories/new')
 })
-router.post('/categories/save',(req,res) =>{
+router.post('/categories/save',adminAuth,(req,res) =>{
     let titleCategory = req.body.titleCategory;
     if(titleCategory != undefined){
         Category.create({
@@ -32,7 +33,7 @@ router.post('/categories/save',(req,res) =>{
 
 });
 
-router.post("/categories/delete", (req,res)=>{
+router.post("/categories/delete",adminAuth,(req,res)=>{
 
     let id_to_delete = req.body.id;
     if(id_to_delete != undefined){//se não for indefined
@@ -55,7 +56,7 @@ router.post("/categories/delete", (req,res)=>{
     }
 });
 
-router.get("/admin/categories/edit/:id", (req,res) => {
+router.get("/admin/categories/edit/:id",adminAuth,(req,res) => {
 
     let idSearch = req.params.id;
     if(isNaN(idSearch)){
@@ -74,7 +75,7 @@ router.get("/admin/categories/edit/:id", (req,res) => {
 }
 });
 
-router.post('/categories/update',(req,res)=> {
+router.post('/categories/update',adminAuth,(req,res)=> {
     let idUp = req.body.id;
     let titleUp = req.body.title;
 

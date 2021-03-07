@@ -2,16 +2,17 @@ const express = require("express");
 const router = express.Router();
 const User = require('./user');
 const bcrypt = require('bcryptjs');//biblioteca para fazer o hash de senha 
+const adminAuth = require('../middlerware/adminAuth') //middlerware(autenticação para rotas administrativas)
 
 
-router.get('/admin/users', (req,res)=> {
+router.get('/admin/users',adminAuth ,(req,res)=> {
     res.send('Listagem de usuários')
 })
 
 router.get('/user/create', (req,res) => {
     res.render('admin/users/create')
 })
-router.post('/user/save', (req,res) => {
+router.post('/user/save',(req,res) => {
     let email = req.body.email;
     let password = req.body.password;
 
@@ -54,7 +55,7 @@ router.post('/authenticate',(req,res)=>{
                     id: user.id,
                     email: user.email
                 }
-                res.json(req.session.user)
+                res.redirect('/admin/articles')
             }else{
                 res.redirect('user/login');
             }

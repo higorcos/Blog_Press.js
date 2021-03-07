@@ -1,23 +1,24 @@
 const express = require('express');
 const router = express.Router();//.Router para criar manipuladores de rota modulares e montáveis.
+const adminAuth = require('../middlerware/adminAuth') //middlerware(autenticação para rotas administrativas)
 const Category = require('../categories/category')
 const Article = require('../articles/articles')
 const slugify = require('slugify')
 
 //o router faz a dritribuição de rota fora do arquivo primario 
-router.get('/admin/articles',(req,res) =>{
+router.get('/admin/articles',adminAuth ,(req,res) =>{
     Article.findAll({
         include: [{model: Category}]
     }).then(articles => {
         res.render('admin/articles/index',{articles:articles});
     })
 })
-router.get('/admin/articles/new',(req,res) =>{
+router.get('/admin/articles/new',adminAuth ,(req,res) =>{
     Category.findAll().then(categories => {
         res.render('admin/articles/new', {categories: categories})
     })
 })
-router.post('/articles/save',(req,res) => {
+router.post('/articles/save',adminAuth ,(req,res) => {
     let titleArticle = req.body.titleArticle
     let textArticle = req.body.textArticle
     let category = req.body.category
@@ -36,7 +37,7 @@ router.post('/articles/save',(req,res) => {
     }
 })
 
-router.post("/admin/articles/delete", (req,res)=> {
+router.post("/admin/articles/delete",adminAuth , (req,res)=> {
 
     let id_to_delete = req.body.id;
     if(id_to_delete != undefined){
@@ -56,7 +57,7 @@ router.post("/admin/articles/delete", (req,res)=> {
     }
 })
 
-router.get("/admin/articles/edit/:id", (req,res)=>{
+router.get("/admin/articles/edit/:id",adminAuth ,(req,res)=>{
     let idSearch = req.params.id;
     if(isNaN(idSearch)){
         res.redirect('/admin/articles')
@@ -75,7 +76,7 @@ router.get("/admin/articles/edit/:id", (req,res)=>{
     }
 })
 
-router.post('/admin/articles/update', (req,res) => {
+router.post('/admin/articles/update',adminAuth ,(req,res) => {
     let idUp = req.body.id;
     let titleUp = req.body.title;
     let bodyUP = req.body.bodyText;
