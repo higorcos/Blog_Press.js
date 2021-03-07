@@ -10,6 +10,12 @@ div#form_create{
 nav#navbar{
   background-color: rgb(35, 93, 143);
 }
+.item-navbar-left { 
+  margin-left: auto; 
+} 
+.item-navbar-right { 
+  margin-right: auto; 
+} 
 .corBotao{
   background-color: rgb(11, 39, 66);
  
