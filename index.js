@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
+const session = require('express-session') //biblioteca para criação de sesões(login)
 const connection = require('./database/database')
 
 const routerCategories = require('./categories/categoriesController') // rotas em outro arquivo 
@@ -17,6 +18,15 @@ const router = require('./categories/categoriesController');
 
 //view engine
 app.set('view engine','ejs');//para usar o ejs para carregar as páginas
+
+//sessions
+app.use(session({
+    secret: '@#$%%¨&&%$rt', cookie:{ maxAge: 30000}
+    //secret uma segunrança (o secret vai para o lado do servidor)
+    //cookei é um lembrete indireto do secret (o cookie fica no lado do cliente)
+    //maxAge tempo limite que o cookei é valido
+}))
+
 
 //static(arquivos estaticos)
 app.use(express.static('public'));
