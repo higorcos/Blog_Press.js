@@ -16,6 +16,9 @@ nav#navbar{
 .item-navbar-right { 
   margin-right: auto; 
 } 
+.text-center{
+  text-align: center;
+}
 .corBotao{
   background-color: rgb(11, 39, 66);
  
