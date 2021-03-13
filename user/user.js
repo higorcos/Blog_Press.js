@@ -11,6 +11,6 @@ const user = connection.define('users',{
         allowNull: false
     }
 })
-//user.sync({force: false})// Vai criar a tabela quando ela ainda não existir 
+user.sync({force: false})// Vai criar a tabela quando ela ainda não existir 
 //user.sync({force: true})// vai forçar a criação da tabela
 module.exports = user;
