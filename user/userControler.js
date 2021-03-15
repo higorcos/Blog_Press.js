@@ -26,8 +26,8 @@ router.post('/user/save',(req,res) => {
         User.create({
             email: email,
             password: hash
-        }).then(() =>{
-            res.json({email, hash});
+        }).then(() =>{ 
+            res.redirect('/user/login')//Não conecta logo após a criação do usuário 
         }).catch((err)=>{
            res.redirect('/');
         })
