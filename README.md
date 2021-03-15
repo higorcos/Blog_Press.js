@@ -1,6 +1,6 @@
 # Blog_Press.js
 Criando uma site para publicação de posts
-
+[https://github.com/techtuxbr] com o professor Victor Lima
 [Vídeo mostrando o Projeto](https://youtu.be/1ljGKjX9jX0)
 
 ![Imagens](https://github.com/higorcos/Blog_Wordpress.js/blob/imagens/imagens/home.png)
