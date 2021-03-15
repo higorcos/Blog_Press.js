@@ -1,7 +1,9 @@
 # Blog_Press.js
+[![licence mit](https://img.shields.io/github/license/higorcos/Blog_Press.js?color=blue](https://github.com/higorcos/Blog_Press.js/blob/main/LICENSE)
 Criando uma site para publicação de posts
 com o professor[https://github.com/techtuxbr](professor Victor Lima)
 [Vídeo mostrando o Projeto](https://youtu.be/1ljGKjX9jX0)
+* [Guia do Programador] - Canal Victor Lima - Guia do Programador
 
 ![Imagens](https://github.com/higorcos/Blog_Wordpress.js/blob/imagens/imagens/home.png)
 ![Imagens](https://github.com/higorcos/Blog_Wordpress.js/blob/imagens/imagens/login.png)
