@@ -1,5 +1,5 @@
 # Blog_Press.js
-[![licence mit](https://img.shields.io/github/license/higorcos/Blog_Press.js?color=blue)][https://github.com/higorcos/Blog_Press.js/blob/main/LICENSE]
+[![licence mit](https://img.shields.io/github/license/higorcos/Blog_Press.js?color=blue)](https://github.com/higorcos/Blog_Press.js/blob/main/LICENSE])
 
 Criando uma site para publicação de posts
 com o professor[https://github.com/techtuxbr](professor Victor Lima)
