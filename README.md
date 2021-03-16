@@ -20,23 +20,21 @@
 > Página de controle dos artigos:
 ![](https://github.com/higorcos/Blog_Wordpress.js/blob/imagens/imagens/categorias.png)
 
+## Instalação
+Para que a aplicação funcione na sua maquina siga a ordem da instalação.
+
+* Faça o clone do repositório usando o terminal
+```
+git clone https://github.com/higorcos/Blog_Press.js.git
+```
+* Instale o npm
+```
+$ npm install
+```
+* Instale o [node.js](https://nodejs.org/en/download/)(acesse o link)
 
 
-
-
-## Installation
-
-Este é um módulo [Node.js](https://nodejs.org/en/) disponível através do
-[npm registry](https://www.npmjs.com/).
-
-
-Antes de instalar, [baixe e instale Node.js](https://nodejs.org/en/download/).
-Node.js 0.10 ou superior é necessário.
-
-
-A instalação é feita usando o
-[`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
-
-```bash
+* Instale o express
+```
 $ npm install express
 ```
