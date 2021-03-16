@@ -1,5 +1,6 @@
 # Blog_Press.js
 [![licence mit](https://img.shields.io/github/license/higorcos/Blog_Press.js?color=blue)](https://github.com/higorcos/Blog_Press.js/blob/main/LICENSE])
+![](https://img.shields.io/github/repo-size/higorcos/Blog_Press.js)
 
 * Blog criado com node.js no curso do guia do programador na Udemy com o professor [Victor Lima](https://github.com/techtuxbr)
 
