@@ -1,15 +1,19 @@
 # Blog_Press.js
 [![licence mit](https://img.shields.io/github/license/higorcos/Blog_Press.js?color=blue)](https://github.com/higorcos/Blog_Press.js/blob/main/LICENSE])
 
-Criando uma site para publicação de posts
-com o professor[https://github.com/techtuxbr](professor Victor Lima)
+*Blog criado com node.js no curso do guia do programador na Udemy com o professor[https://github.com/techtuxbr](professor Victor Lima)
 [Vídeo mostrando o Projeto](https://youtu.be/1ljGKjX9jX0)
 * [Guia do Programador] - Canal Victor Lima - Guia do Programador
-
-![Imagens](https://github.com/higorcos/Blog_Wordpress.js/blob/imagens/imagens/home.png)
-![Imagens](https://github.com/higorcos/Blog_Wordpress.js/blob/imagens/imagens/login.png)
-![Imagens](https://github.com/higorcos/Blog_Wordpress.js/blob/imagens/imagens/Categorias1.png)
-![Imagens](https://github.com/higorcos/Blog_Wordpress.js/blob/imagens/imagens/categorias.png)
+> :
+![](https://github.com/higorcos/Blog_Wordpress.js/blob/imagens/imagens/home.png)
+> :
+![](https://github.com/higorcos/Blog_Wordpress.js/blob/imagens/imagens/login.png)
+> Página de criação de artigo:
+![](https://github.com/higorcos/Blog_Press.js/blob/imagens/imagens/Cria%C3%A7%C3%A3o%20de%20artigo%20.png)
+> :
+![](https://github.com/higorcos/Blog_Wordpress.js/blob/imagens/imagens/Categorias1.png)
+> :
+![](https://github.com/higorcos/Blog_Wordpress.js/blob/imagens/imagens/categorias.png)
 
 
 
