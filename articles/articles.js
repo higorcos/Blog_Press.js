@@ -7,7 +7,7 @@ const article = connection.define('articles',{
     title:{
         type: Sequelize.STRING,
         allowNull: false
-    },slug: { //url exetempo 'dados do site' slug disso 'dados-do-site'
+    },slug: { //url exemplo 'dados do site' slug disso 'dados-do-site'
         type: Sequelize.STRING,
         allowNull: false
     },

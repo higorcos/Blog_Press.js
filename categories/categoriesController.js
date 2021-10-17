@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();//.Router para criar manipuladores de rota modulares e montáveis.
 const Category = require('./category')
 const slugify = require('slugify');// biblioteca para transformar texto em url 
-const adminAuth = require('../middlerware/adminAuth') //middlerware(autenticação para rotas administrativas)
+const adminAuth = require('../middleware/adminAuth') //middleware(autenticação para rotas administrativas)
 
 //const category = require('./category');
 

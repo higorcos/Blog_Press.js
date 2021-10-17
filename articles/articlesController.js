@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();//.Router para criar manipuladores de rota modulares e montáveis.
-const adminAuth = require('../middlerware/adminAuth') //middlerware(autenticação para rotas administrativas)
+const adminAuth = require('../middleware/adminAuth') //middleware(autenticação para rotas administrativas)
 const Category = require('../categories/category')
 const Article = require('../articles/articles')
 const slugify = require('slugify')
 
-//o router faz a dritribuição de rota fora do arquivo primario 
+//o router faz a distribuição de rota fora do arquivo primario 
 router.get('/admin/articles',adminAuth ,(req,res) =>{
     Article.findAll({
         include: [{model: Category}]

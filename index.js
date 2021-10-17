@@ -1,20 +1,15 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
-const session = require('express-session') //biblioteca para criação de sesões(login)
+const session = require('express-session') //biblioteca para criação de sessões(login)
 const connection = require('./database/database')
 
 const routerCategories = require('./categories/categoriesController') // rotas em outro arquivo 
 const routerArticles = require('./articles/articlesController')
-const routerUsers = require('./user/userControler')
+const routerUsers = require('./user/userController')
 
 const Article = require('./articles/articles');
 const Category = require('./categories/category');
-const User = require('./user/user')
-
-const article = require('./articles/articles');
-const category = require('./categories/category');
-const router = require('./categories/categoriesController'); 
 
 //view engine
 app.set('view engine','ejs');//para usar o ejs para carregar as páginas
@@ -22,10 +17,10 @@ app.set('view engine','ejs');//para usar o ejs para carregar as páginas
 //express-sessions
 app.use(session({
     secret: '@#$%%¨&&%$rt', cookie:{ maxAge: 1800000}
-    //secret uma segunrança (o secret vai para o lado do servidor)
-    //cookei é um lembrete indireto do secret (o cookie fica no lado do cliente)
-    //maxAge tempo limite que o cookei é valido
-    //o salvamento de dados padrão do 'express-sessions' é na namemoria ram, não é funcional para grandes aplicações.
+    //secret uma segurança (o secret vai para o lado do servidor)
+    //cookie é um lembrete indireto do secret (o cookie fica no lado do cliente)
+    //maxAge tempo limite que o cookie é valido
+    //o salvamento de dados padrão do 'express-sessions' é na nemoria ram, não é funcional para grandes aplicações.
 }))
 
 
@@ -71,7 +66,7 @@ app.get('/:slug', (req,res)=> {
         }
     }).then(article =>{
         if(article != undefined){
-            Category.findAll().then(categories =>{
+            Category.findAll().then(categories => {
                 res.render('article', {article: article, categories:categories});
                  })
         }else{
@@ -82,7 +77,7 @@ app.get('/:slug', (req,res)=> {
     })
 });
 
-app.get('/category/:slug', (req,res) => { //rota para flitrar as caregorias
+app.get('/category/:slug', (req,res) => { //rota para filtrar as categorias
     let slug = req.params.slug;
     Category.findOne({
         where:{

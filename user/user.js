@@ -6,7 +6,7 @@ const user = connection.define('users',{
     email:{
         type: Sequelize.STRING,
         allowNull: false
-    },password: { //url exetempo 'dados do site' slug disso 'dados-do-site'
+    },password: { 
         type: Sequelize.STRING,
         allowNull: false
     }
